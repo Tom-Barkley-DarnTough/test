@@ -20,11 +20,16 @@ exports.lambdaHandler = async (event, context) => {
 
         const {Client} = require('pg');
 
-        const body = JSON.parse(event.body)      ;
+        //const body = JSON.parse(event.body)      ;
+        /*
         const query = {
+
                 text:"insert into operations_observations (report_id)",
                 values: [body.text],
         };
+         */
+        const query = "insert into operations_observations (report_id, manufacturing_order, observation_disposition) values ('1','test', 'observed bs')";
+
         const client = new Client({
             user:'postgres',
             host:'prd-postgres-cluster.cluster-cn1bn6utijsz.us-east-2.rds.amazonaws.com',

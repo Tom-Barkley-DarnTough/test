@@ -28,7 +28,7 @@ Resources:
             Method: get
     Metadata:
       DockerTag: nodejs16.x-v1
-      DockerContext: ./hello-world
+      DockerContext: ./operation-observations-update
       Dockerfile: Dockerfile
 
 Outputs:

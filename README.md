@@ -96,9 +96,9 @@ You can find more information and examples about filtering Lambda function logs 
 Tests are defined in the `hello-world/tests` folder in this project. Use NPM to install the [Mocha test framework](https://mochajs.org/) and run unit tests from your local machine.
 
 ```bash
-TCB_Test$ cd hello-world
-hello-world$ npm install
-hello-world$ npm run test
+TCB_Test$ cd operation-observations-update
+operation-observations-update$ npm install
+operation-observations-update$ npm run test
 ```
 
 ## Cleanup

@@ -17,17 +17,43 @@ let response;
 exports.lambdaHandler = async (event, context) => {
     try {
         // const ret = await axios(url);
+
+        const {Client} = require('pg');
+
+        const body = JSON.parse(event.body)      ;
+        const query = {
+                text:"insert into operations_observations (report_id)",
+                values: [body.text],
+        };
+        const client = new Client({
+            user:'postgres',
+            host:'prd-postgres-cluster.cluster-cn1bn6utijsz.us-east-2.rds.amazonaws.com',
+            database:'models',
+            password:'yhZxDziKK4ilQINdW3I3',
+            port:'5432',
+        })
+       client.connect();
+
+        const result = await client.query(query);
+        const result_string = JSON.stringify(result);
+
+        client.end;
+        
         response = {
             'statusCode': 200,
+            'body': result_string,
+
+            /*
             'body': JSON.stringify({
                 message: 'hello world',
                 // location: ret.data.trim()
-            })
+            */
         }
     } catch (err) {
         console.log(err);
         return err;
     }
 
-    return response
+    return response;
+
 };

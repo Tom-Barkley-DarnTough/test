@@ -28,12 +28,12 @@ exports.lambdaHandler = async (event, context) => {
                 values: [body.text],
         };
          */
-        const query = "insert into operations_observations (report_id, manufacturing_order, observation_disposition) values ('1','test', 'observed bs')";
+        const query = "insert into models.operations_observations (report_id, manufacturing_order, observation_disposition) values ('1','test', 'observed bs')";
 
         const client = new Client({
             user:'postgres',
             host:'prd-postgres-cluster.cluster-cn1bn6utijsz.us-east-2.rds.amazonaws.com',
-            database:'models',
+            database:'postgres',
             password:'yhZxDziKK4ilQINdW3I3',
             port:'5432',
         })
